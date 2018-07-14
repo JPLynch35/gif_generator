@@ -6,7 +6,7 @@ describe Gif, type: :model do
     it { should validate_presence_of(:gif_url)}
   end
   describe 'relationships' do
-    it { should belong_to(:categories)}
+    it { should belong_to(:category)}
     it { should have_many(:favorites)}
     it { should have_many(:users).through(:favorites)}
   end
