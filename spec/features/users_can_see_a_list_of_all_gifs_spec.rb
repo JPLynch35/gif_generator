@@ -10,7 +10,7 @@ describe 'a logged-in user' do
     it 'should see a list of all gifs sorted by category' do
       visit gifs_path
 
-      expect(page).to have_content(@category1)
+      expect(page).to have_content(@category1.title)
       expect(page).to have_content(@gif1.gif_url)
       expect(page).to have_content(@gif2.gif_url)
     end
