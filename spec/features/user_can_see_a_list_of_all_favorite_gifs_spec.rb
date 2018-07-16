@@ -10,6 +10,10 @@ describe 'a logged-in user' do
       @category2 = Category.create(title: 'cats')
       @gif3 = @category2.gifs.create(gif_url: 'www.testurl.com/test3')
       @gif4 = @category2.gifs.create(gif_url: 'www.testurl.com/test4')
+      visit login_path
+      fill_in :email, with: @user1.email
+      fill_in :password, with: @user1.password
+      click_on 'Log In'
     end
     it 'can select favorite gifs from gifs index page' do
       visit gifs_path
