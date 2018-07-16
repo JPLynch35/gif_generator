@@ -11,7 +11,7 @@ describe 'a visitor' do
       fill_in user[name], with: 'Paul'
       fill_in user[email], with: 'Paul@gmail.com'
       fill_in user[password], with: 'totallysecret'
-      click_on 'Create'
+      click_on 'Create Account'
 
       expect(current_path).to eq(user_path(User.where(email: 'Paul@gmail.com')))
     end

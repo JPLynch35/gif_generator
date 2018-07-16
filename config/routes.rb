@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   resources :gifs, only: [:index]
   resources :favorites, only: [:index]
+  resources :users, only: [:new, :show]
   root 'welcome#index'
+  get '/login', to:'sessions#new'
+  post '/login', to: 'sessions#new'
+  delete '/logout', to 'sessions#destroy'
 end
