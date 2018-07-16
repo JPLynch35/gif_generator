@@ -3,6 +3,9 @@
 <% @categories.each do |category| %>
   <h4><%= category.title %></h4>
   <% category.gifs.each do |gif| %>
-    <p><%= gif.gif_url %></p>
+    <p id="gif_#{gif.id}">
+      <%= gif.gif_url %>
+      <%= render partial: 'checkbox' %>
+    </p>
   <% end %>
 <% end %>
