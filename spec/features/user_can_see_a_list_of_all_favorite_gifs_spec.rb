@@ -17,7 +17,6 @@ describe 'a logged-in user' do
     end
     it 'can select favorite gifs from gifs index page' do
       visit gifs_path
-      save_and_open_page
       check "checkbox-#{@gif1.id}"
       check "checkbox-#{@gif4.id}"
       visit user_path(@user1)
@@ -29,6 +28,21 @@ describe 'a logged-in user' do
       expect(page).to have_content(@category2.title)
       expect(page).to_not have_content(@gif3.gif_url)
       expect(page).to have_content(@gif4.gif_url)
+    end
+    it 'can remove gifs from favorites page' do
+      fav1 = Favorite.create(gif_id: @gif1.id, user_id: @user1.id)
+      fav2 = Favorite.create(gif_id: @gif4.id, user_id: @user1.id)
+      visit user_favorites_path(@user1)
+
+      expect(page).to have_content(@gif1.gif_url)
+      expect(page).to have_content(@gif4.gif_url)
+
+      within "gif-#{@fav2.id}" do
+        click_on 'Remove'
+      end
+
+      expect(page).to have_content(@gif1.gif_url)
+      expect(page).to_not have_content(@gif4.gif_url)
     end
   end
 end
