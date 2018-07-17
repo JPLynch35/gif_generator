@@ -17,8 +17,8 @@ describe 'a logged-in user' do
     end
     it 'can select favorite gifs from gifs index page' do
       visit gifs_path
-      check "gif_#{@gif1.id}"
-      check "gif_#{@gif4.id}"
+      check @gif1.id
+      check @gif4.id
       visit user_path(@user1)
       click_on 'Favorites'
 

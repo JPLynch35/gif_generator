@@ -7,8 +7,8 @@ describe 'a visitor' do
       @gif1 = @category1.gifs.create(gif_url: 'www.testurl.com/test1')
       @gif2 = @category1.gifs.create(gif_url: 'www.testurl.com/test2')
       @category2 = Category.create(title: 'cats')
-      @gif3 = @category1.gifs.create(gif_url: 'www.testurl.com/test3')
-      @gif4 = @category1.gifs.create(gif_url: 'www.testurl.com/test4')
+      @gif3 = @category2.gifs.create(gif_url: 'www.testurl.com/test3')
+      @gif4 = @category2.gifs.create(gif_url: 'www.testurl.com/test4')
     end
     it 'should see a list of all gifs sorted by category' do
       visit gifs_path

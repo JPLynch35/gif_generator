@@ -1,10 +1,8 @@
 <h2>Your Favorite Gifs</h2>
 
 <% @favorites.each do |favorite| %>
-  <h4><%= favorite.gif.title %></h4>
-  <p id="fgif_<%=favorite.gif.id%>%">
-    <%= favorite.gif.gif_url %>
-    <%= check_box_tag(:"gif_#{favorite.gif.id}") %>
-    <%= label_tag(:"gif_#{favorite.gif.id}", 'Favorite') %>
-  </p>
+  <div id="f-gif-<%=favorite.gif.id%>%">
+    <p><%= favorite.gif.category.title %></p>
+    <p><%= favorite.gif.gif_url %></p>
+  </div>
 <% end %>

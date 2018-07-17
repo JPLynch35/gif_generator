@@ -1,14 +1,28 @@
 <h2>All Gifs</h2>
 
-<% @categories.each do |category| %>
-  <h4><%= category.title %></h4>
-  <% category.gifs.each do |gif| %>
-    <p id="gif_<%=gif.id%>%">
-      <%= gif.gif_url %>
-      <% unless session[:user_id].nil? %>
-        <%= check_box_tag(:"gif_#{gif.id}") %>
-        <%= label_tag(:"gif_#{gif.id}", 'Favorite') %>
-      <% end %>
-    </p>
+<% if session[:user_id] %>
+  <%= form_tag user_favorites_path(session[:user_id]) do %>
+    <% @gifs.each do |gif| %>
+      <div id="gif-<%=gif.id%>%">
+        <p><%= gif.category.title %></p>
+        <p><%= gif.gif_url %></p>
+          <p>
+            <%= label_tag(:"gif_#{gif.id}", 'Favorite') %>
+            <%= check_box_tag('favorites[]', gif.id) %>
+          </p>
+          <br>
+      </div>
+    <% end %>
+
+    <%= submit_tag 'Save Favorites'%>
+
   <% end %>
+<% else %>
+  <% @gifs.each do |gif| %>
+    <div id="gif-<%=gif.id%>%">
+      <p><%= gif.category.title %></p>
+      <p><%= gif.gif_url %></p>
+      <br>
+    </div>
+    <% end %>
 <% end %>
