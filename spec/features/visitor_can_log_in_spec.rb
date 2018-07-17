@@ -22,7 +22,7 @@ describe 'a visitor' do
       fill_in 'email', with: user1.email
       fill_in 'password', with: user1.password
       click_on 'Log In'
-
+      
       expect(current_path).to eq(user_path(User.find_by(email: 'Dennis@gmail.com').id))
     end
   end

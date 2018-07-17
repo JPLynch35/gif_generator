@@ -4,9 +4,9 @@ class Favorite < ApplicationRecord
   belongs_to :gif
   belongs_to :user
 
-  def self.create_favorites(gifs_list, user_id)
+  def self.create_favorites(gifs_list, user)
     gifs_list.each do |gif_id|
-      Favorite.create(gif_id: gif_id, user_id: user_id)
+      Favorite.create(gif_id: gif_id, user_id: user.id)
     end
   end
 end

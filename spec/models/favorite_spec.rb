@@ -16,7 +16,7 @@ describe Favorite, type: :model do
       gif1 = category1.gifs.create(gif_url: 'www.testurl.com/test1')
       gif2 = category1.gifs.create(gif_url: 'www.testurl.com/test2')
       gifs_list = [gif1.id, gif2.id]
-      Favorite.create_favorites(gifs_list, user.id)
+      Favorite.create_favorites(gifs_list, user)
 
       expect(Favorite.first.gif_id).to eq(gif1.id)
       expect(Favorite.first.user_id).to eq(user.id)

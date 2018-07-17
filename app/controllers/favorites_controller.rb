@@ -1,16 +1,18 @@
 class FavoritesController < ApplicationController
   def index
-    @favorites = Favorite.where(user_id: session[:user_id]).includes(:gif)
-    @user = User.find(session[:user_id])
+    @user = current_user
+    @favorites = Favorite.where(user_id: @user).includes(:gif)
   end
 
   def create
-    Favorite.create_favorites(params[:favorites], session[:user_id])
-    redirect_to user_favorites_path(session[:user_id])
+    @user = User.find(params[:user_id])
+    Favorite.create_favorites(params[:favorites], @user)
+    redirect_to user_favorites_path(@user)
   end
 
   def destroy
+    @user = User.find(params[:user_id])
     Favorite.destroy(params[:id])
-    redirect_to user_favorites_path(session[:user_id])
+    redirect_to user_favorites_path(@user)
   end
 end
