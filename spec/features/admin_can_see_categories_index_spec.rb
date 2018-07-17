@@ -20,7 +20,7 @@ describe 'user visiting category index page' do
       gif4 = category2.gifs.create(gif_url: 'www.testurl.com/test4')
 
       visit admin_categories_path
-      within("category-#{category1.id}") do
+      within("#category-#{category1.id}") do
         click_on 'Remove'
       end
 

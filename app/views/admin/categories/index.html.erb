@@ -1,7 +1,7 @@
 <h2>All Categories (Admins Only)</h2>
 
 <% @categories.each do |category| %>
-  <p id="category-#{category.id}">
+  <p id="category-<%=category.id%>">
     <%= category.title %>
     <%= link_to 'Remove', admin_category_path(category), method: 'delete'%>
   </p>
