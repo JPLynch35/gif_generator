@@ -1,6 +1,6 @@
 <h2>All Gifs</h2>
 
-<% if session[:user_id] %>
+<% if current_user %>
   <%= form_tag user_favorites_path(session[:user_id]) do %>
     <% @gifs.each do |gif| %>
       <div id="gif-<%=gif.id%>">
