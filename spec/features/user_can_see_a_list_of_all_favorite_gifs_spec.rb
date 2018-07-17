@@ -17,10 +17,14 @@ describe 'a logged-in user' do
     end
     it 'can select favorite gifs from gifs index page' do
       visit gifs_path
-      check "checkbox-#{@gif1.id}"
-      check "checkbox-#{@gif4.id}"
-      visit user_path(@user1)
-      click_on 'Favorites'
+
+      within("#gif-#{@gif1.id}") do
+        check 'favorites_'
+      end
+      within("#gif-#{@gif4.id}") do
+        check 'favorites_'
+      end
+      click_on 'Save Favorites'
 
       expect(page).to have_content(@category1.title)
       expect(page).to have_content(@gif1.gif_url)
@@ -36,8 +40,8 @@ describe 'a logged-in user' do
 
       expect(page).to have_content(@gif1.gif_url)
       expect(page).to have_content(@gif4.gif_url)
-
-      within "gif-#{fav2.id}" do
+      
+      within("#f-gif-#{fav2.id}") do
         click_on 'Remove'
       end
 

@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @favorites = Favorite.where(user_id: @user).includes(:gif)
   end
 
