@@ -37,7 +37,7 @@ describe 'a logged-in user' do
       expect(page).to have_content(@gif1.gif_url)
       expect(page).to have_content(@gif4.gif_url)
 
-      within "gif-#{@fav2.id}" do
+      within "gif-#{fav2.id}" do
         click_on 'Remove'
       end
 

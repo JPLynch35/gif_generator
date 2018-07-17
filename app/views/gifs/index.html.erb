@@ -8,7 +8,7 @@
         <p><%= gif.gif_url %></p>
           <p>
             <%= label_tag('Favorite') %>
-            <%= check_box_tag('favorites[]', "checkbox-#{gif.id}") %>
+            <%= check_box_tag('favorites[]', gif.id) %>
           </p>
           <br>
       </div>
