@@ -20,13 +20,16 @@ describe 'user visiting category index page' do
       gif4 = category2.gifs.create(gif_url: 'www.testurl.com/test4')
 
       visit admin_categories_path
+
+      expect(Gif.count).to eq(4)
+
       within("#category-#{category1.id}") do
         click_on 'Remove'
       end
 
       expect(page).to_not have_content(category1.title)
       expect(page).to have_content(category2.title)
-      expect(gif1).to be_nil
+      expect(Gif.count).to eq(2)
     end
   end
   context 'as a default user' do
