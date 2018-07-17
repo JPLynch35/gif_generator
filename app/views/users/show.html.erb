@@ -1,5 +1,5 @@
-<h2>Welcome <%= @user.name %>!</h2>
+<h2>Welcome <%= current_user.name %>!</h2>
 <%= link_to 'All Gifs', gifs_path %>
-<%= link_to 'Favorites', user_favorites_path(@user) %>
+<%= link_to 'Favorites', user_favorites_path(current_user) %>
 
 <%= link_to 'Log Out', logout_path, method: 'delete' %>
