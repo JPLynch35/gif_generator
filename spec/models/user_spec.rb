@@ -14,11 +14,11 @@ describe User, type: :model do
     it 'should authenticate a valid user' do
       user = User.create(name: 'Dennis', email: 'Dennis@gmail.com', password: 'thisismypassword')
 
-      attempt1 = User.authenticate(user.email, 'thisisnotmypassword')
+      attempt1 = user.authenticate('wrongpassword')
 
-      expect(attempt1).to eq(nil)
+      expect(attempt1).to be false
 
-      attempt2 = User.authenticate(user.email, user.password)
+      attempt2 = user.authenticate(user.password)
 
       expect(attempt2).to eq(user)
     end
