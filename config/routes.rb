@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :gifs, only: [:index]
   resources :users, except: [:destroy, :show]
   resources :users, only: [:show] do
-    resources :favorites, only: [:index, :create]
+    resources :favorites, only: [:index, :create, :destroy]
   end
   root 'welcome#index'
   get '/login', to: 'sessions#new'

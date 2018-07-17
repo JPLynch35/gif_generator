@@ -8,4 +8,9 @@ class FavoritesController < ApplicationController
     Favorite.create_favorites(params[:favorites], session[:user_id])
     redirect_to user_favorites_path(session[:user_id])
   end
+
+  def destroy
+    Favorite.destroy(params[:id])
+    redirect_to user_favorites_path(session[:user_id])
+  end
 end
