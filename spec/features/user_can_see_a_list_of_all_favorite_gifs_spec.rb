@@ -17,8 +17,9 @@ describe 'a logged-in user' do
     end
     it 'can select favorite gifs from gifs index page' do
       visit gifs_path
-      check @gif1.id
-      check @gif4.id
+      save_and_open_page
+      check "checkbox-#{@gif1.id}"
+      check "checkbox-#{@gif4.id}"
       visit user_path(@user1)
       click_on 'Favorites'
 

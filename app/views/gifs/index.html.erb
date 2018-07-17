@@ -3,12 +3,12 @@
 <% if session[:user_id] %>
   <%= form_tag user_favorites_path(session[:user_id]) do %>
     <% @gifs.each do |gif| %>
-      <div id="gif-<%=gif.id%>%">
+      <div id="gif-<%=gif.id%>">
         <p><%= gif.category.title %></p>
         <p><%= gif.gif_url %></p>
           <p>
-            <%= label_tag(:"gif_#{gif.id}", 'Favorite') %>
-            <%= check_box_tag('favorites[]', gif.id) %>
+            <%= label_tag('Favorite') %>
+            <%= check_box_tag('favorites[]', "checkbox-#{gif.id}") %>
           </p>
           <br>
       </div>
