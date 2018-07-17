@@ -8,7 +8,7 @@ describe 'user visiting category index page' do
 
       visit admin_categories_path
 
-      expect(page).to have_content('All Categories')
+      expect(page).to have_content('All Categories (Admins Only)')
     end
   end
   context 'as a default user' do
