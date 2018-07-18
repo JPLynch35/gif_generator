@@ -9,7 +9,7 @@ describe 'user visiting category index page' do
     it 'allows admin to see all categories' do
       visit admin_categories_path
 
-      expect(page).to have_content('All Categories (Admins Only)')
+      expect(page).to have_content('All Categories (Admin Only)')
     end
     it 'allows admin to delete a category and all gifs associated with it' do
       category1 = Category.create(title: 'dogs')

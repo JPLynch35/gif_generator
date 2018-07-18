@@ -14,12 +14,25 @@ describe 'user visiting new gif page' do
 
       visit new_admin_category_path
       
-      expect(page).to have_content('Add Gifs (Admins Only)')
+      expect(page).to have_content('Add Gifs (Admin Only)')
       fill_in :title, with: 'pig'
       click_on 'Generate Gif'
 
       expect(current_path).to eq(gifs_path)
       expect(page).to have_content('Pig')
+    end
+    it 'does not allow admin to add gif if nothing matches search' do
+      visit login_path
+      fill_in :email, with: 'Jenny@jenny.com'
+      fill_in :password, with: 'pass'
+      click_on 'Submit'
+
+      visit new_admin_category_path
+      
+      fill_in :title, with: 'sdfldsfiub328473284'
+      click_on 'Generate Gif'
+
+      expect(page).to have_content('Add Gifs (Admin Only)')
     end
   end
   context 'as a default user' do
