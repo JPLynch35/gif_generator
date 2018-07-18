@@ -1,8 +1,8 @@
 <h2 class='heading'>All Gifs</h2>
 
 <% if current_user %>
-<div class='gif-page'>
   <%= form_tag user_favorites_path(session[:user_id]) do %>
+  <div class='gif-page'>
     <% @gifs.each do |gif| %>
       <div id="gif-<%=gif.id%>" class='gif-box centered'>
         <h4><%= gif.category.title.capitalize %></h4>
@@ -14,9 +14,9 @@
           <br>
       </div>
     <% end %>
-    <%= submit_tag 'Save Favorites'%>
+    </div>
+    <p class='centered'><%= submit_tag 'Save Favorites'%></p>
   <% end %>
-</div>
 <% else %>
 <div class='gif-page'>
   <% @gifs.each do |gif| %>

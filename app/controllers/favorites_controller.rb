@@ -5,9 +5,13 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    Favorite.create_favorites(params[:favorites], @user)
-    redirect_to user_favorites_path(@user)
+    if params[:favorites]
+      @user = User.find(params[:user_id])
+      Favorite.create_favorites(params[:favorites], @user)
+      redirect_to user_favorites_path(@user)
+    else
+      redirect_to gifs_path
+    end
   end
 
   def destroy
