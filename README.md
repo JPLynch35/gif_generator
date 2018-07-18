@@ -49,8 +49,8 @@ Create an app where users can "favorite" gifs. Host your app live on Heroku.
 
 ### Code Quality
 
-- [ ] Logic lives in the appropriate files
-- [ ] Methods are refactored and follow SRP
+- [X] Logic lives in the appropriate files
+- [X] Methods are refactored and follow SRP
 - [X] Naming follows convention
 
 #### Testing
