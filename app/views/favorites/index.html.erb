@@ -3,7 +3,7 @@
 <% @favorites.each do |favorite| %>
   <div id="f-gif-<%=favorite.id%>">
     <p><%= favorite.gif.category.title %></p>
-    <p><%= favorite.gif.gif_url %></p>
+    <p><img src=<%=favorite.gif.gif_url%>></p>
     <%= link_to 'Remove', user_favorite_path(@user, favorite.id), method: 'delete' %>
   </div>
 <% end %>

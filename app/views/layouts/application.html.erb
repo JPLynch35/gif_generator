@@ -16,6 +16,7 @@
           <%= link_to 'All Gifs', gifs_path %>
           <%= link_to 'Favorites', user_favorites_path(current_user) %>
           <%= link_to 'Categories', admin_categories_path %>
+          <%= link_to 'Add Gifs', new_admin_category_path %>
         </div>
         <div id='nav-right'>
           <%= link_to 'Log Out', logout_path, method: 'delete' %>
