@@ -20,7 +20,7 @@
 <% else %>
 <div class='gif-page'>
   <% @gifs.each do |gif| %>
-    <div id="gif-<%=gif.id%>%" class='gif-box centered'>
+    <div id="gif-<%=gif.id%>" class='gif-box centered'>
       <h4><%= gif.category.title.capitalize %></h4>
       <p><img src=<%=gif.gif_url%>></p>
       <br>

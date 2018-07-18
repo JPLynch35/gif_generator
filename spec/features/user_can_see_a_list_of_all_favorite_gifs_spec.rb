@@ -13,7 +13,7 @@ describe 'a logged-in user' do
       visit login_path
       fill_in :email, with: @user1.email
       fill_in :password, with: @user1.password
-      click_on 'Log In'
+      click_on 'Submit'
     end
     it 'can select favorite gifs from gifs index page' do
       visit gifs_path
@@ -26,15 +26,15 @@ describe 'a logged-in user' do
       end
       click_on 'Save Favorites'
 
-      expect(page).to have_content(@category1.title)
-      expect(page).to have_content(@category2.title)
+      expect(page).to have_content(@category1.title.capitalize)
+      expect(page).to have_content(@category2.title.capitalize)
     end
     it 'can remove gifs from favorites page' do
       fav1 = Favorite.create(gif_id: @gif3.id, user_id: @user1.id)
       fav2 = Favorite.create(gif_id: @gif4.id, user_id: @user1.id)
       visit user_favorites_path(@user1)
 
-      expect(page).to have_content(@gif3.category.title)
+      expect(page).to have_content(@gif3.category.title.capitalize)
       
       within("#f-gif-#{fav1.id}") do
         click_on 'Remove'
