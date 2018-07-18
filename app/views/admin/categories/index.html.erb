@@ -1,1 +1,16 @@
-<h2>All Categories (Admins Only)</h2>
+<h2 class='heading'>All Categories (Admins Only)</h2>
+
+<div class='narrow-table'>
+  <table class='table'>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <div id="category-<%=category.id%>">
+            <td class='centered'><%= category.title %></td>
+            <td class='centered'><%= link_to 'Remove', admin_category_path(category), method: 'delete'%></td>
+          </div>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

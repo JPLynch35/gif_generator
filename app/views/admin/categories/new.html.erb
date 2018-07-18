@@ -1,0 +1,13 @@
+<h2 class='heading'>Add Gifs (Admins Only)</h2>
+
+<main class='heading input-1-form'>
+  <%= form_tag admin_categories_path do %>
+    <div class="form-row">
+      <div class="col">
+        <%= label_tag :title %>
+        <%= text_field_tag :title, '', class: 'form-control', placeholder: 'Category Title', autofocus: true %>
+      </div>
+    </div>
+    <%= submit_tag 'Generate Gif', class: 'user-submit' %>
+  <% end %>
+</main>

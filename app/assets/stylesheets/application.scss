@@ -1,0 +1,87 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+ @import "bootstrap";
+ 
+body {
+  background-color: rgb(255, 255, 255)
+}
+  
+.navbar {
+  background-color: rgb(221, 228, 233)
+}
+ 
+.heading {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.dash-gif {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.user-submit {
+  text-align: center;
+  margin: 20px;
+}
+
+.narrow-table {
+  padding-top: 20px;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.giphy-logo {
+  padding: 20px;
+}
+
+.gif-page {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.gif-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gif-box img {
+  width:300px;
+  height: auto;
+}
+
+.input-3-form {
+  margin-left: 12%;
+  margin-right: 12%;
+}
+
+.input-2-form {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.input-1-form {
+  margin-left: 37%;
+  margin-right: 37%;
+}
