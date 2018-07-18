@@ -29,6 +29,13 @@ describe 'a logged-in user' do
       expect(page).to have_content(@category1.title.capitalize)
       expect(page).to have_content(@category2.title.capitalize)
     end
+    it 'will not change favorites without any favorite selection' do
+      visit gifs_path
+
+      click_on 'Save Favorites'
+
+      expect(page).to have_content('All Gifs')
+    end
     it 'can remove gifs from favorites page' do
       fav1 = Favorite.create(gif_id: @gif3.id, user_id: @user1.id)
       fav2 = Favorite.create(gif_id: @gif4.id, user_id: @user1.id)

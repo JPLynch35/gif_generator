@@ -18,8 +18,6 @@ class Admin::CategoriesController < Admin::BaseController
     begin
       #Search Endpoint
       result = api_instance.gifs_random_get(api_key, opts).data
-    rescue GiphyClient::ApiError => e
-      result = "Error"
     end
     unless result.nil?
       category = Category.find_or_create_by(title: params[:title] )
