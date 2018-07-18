@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'user visiting category index page' do
   context 'as an admin' do
-    before (:each) do
+    before :each do
       @admin = User.create(name: 'Jenny', email: 'Jenny@jenny.com', password: 'pass', role: 1)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
     end

@@ -4,7 +4,7 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def new
-
+    
   end
 
   def create
@@ -21,7 +21,6 @@ class Admin::CategoriesController < Admin::BaseController
     rescue GiphyClient::ApiError => e
       result = "Error"
     end
-    
     unless result.nil?
       if Category.find_by_title(params[:title])
         category_id = Category.find_by_title(params[:title]).id
@@ -29,9 +28,8 @@ class Admin::CategoriesController < Admin::BaseController
         Category.create(title: params[:title])
         category_id = Category.last.id
       end
-
       Gif.create(gif_url: result.image_url, category_id: category_id )
-      redirect_to admin_categories_path
+      redirect_to gifs_path
     else
       render :new
     end

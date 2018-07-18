@@ -14,11 +14,7 @@ describe 'a visitor' do
       visit gifs_path
 
       expect(page).to have_content(@category1.title)
-      expect(page).to have_content(@gif1.gif_url)
-      expect(page).to have_content(@gif2.gif_url)
       expect(page).to have_content(@category2.title)
-      expect(page).to have_content(@gif3.gif_url)
-      expect(page).to have_content(@gif4.gif_url)
     end
   end
 end
