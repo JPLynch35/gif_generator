@@ -18,17 +18,10 @@ class Admin::CategoriesController < Admin::BaseController
     begin
       #Search Endpoint
       result = api_instance.gifs_random_get(api_key, opts).data
-    rescue GiphyClient::ApiError => e
-      result = "Error"
     end
     unless result.nil?
-      if Category.find_by_title(params[:title])
-        category_id = Category.find_by_title(params[:title]).id
-      else
-        Category.create(title: params[:title])
-        category_id = Category.last.id
-      end
-      Gif.create(gif_url: result.image_url, category_id: category_id )
+      category = Category.find_or_create_by(title: params[:title] )
+      Gif.create(gif_url: result.image_url, category: category )
       redirect_to gifs_path
     else
       render :new
