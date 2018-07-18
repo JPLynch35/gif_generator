@@ -20,7 +20,7 @@ body {
 .navbar {
   background-color: rgb(221, 228, 233)
 }
-    
+ 
 .heading {
   text-align: center;
   padding-top: 20px;
@@ -30,17 +30,58 @@ body {
   text-align: center;
 }
 
-.dash-links {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
 .dash-gif {
+  padding-top: 40px;
+  padding-bottom: 20px;
   text-align: center;
-  margin-left: 70px;
 }
 
 .user-submit {
   text-align: center;
   margin: 20px;
+}
+
+.narrow-table {
+  padding-top: 20px;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.giphy-logo {
+  padding: 20px;
+}
+
+.gif-page {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.gif-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gif-box img {
+  width:300px;
+  height: auto;
+}
+
+.input-3-form {
+  margin-left: 12%;
+  margin-right: 12%;
+}
+
+.input-2-form {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.input-1-form {
+  margin-left: 37%;
+  margin-right: 37%;
 }

@@ -1,9 +1,11 @@
 <h2 class='heading'>Your Favorite Gifs</h2>
 
-<% @favorites.each do |favorite| %>
-  <div id="f-gif-<%=favorite.id%>">
-    <p><%= favorite.gif.category.title %></p>
-    <p><img src=<%=favorite.gif.gif_url%>></p>
-    <%= link_to 'Remove', user_favorite_path(@user, favorite.id), method: 'delete' %>
-  </div>
-<% end %>
+<main class='gif-page'>
+  <% @favorites.each do |favorite| %>
+    <div id="f-gif-<%=favorite.id%>" class='gif-box centered'>
+      <h4><%= favorite.gif.category.title.capitalize %></h4>
+      <p><img src=<%=favorite.gif.gif_url%>></p>
+      <%= link_to 'Remove', user_favorite_path(@user, favorite.id), method: 'delete' %>
+    </div>
+  <% end %>
+</main>

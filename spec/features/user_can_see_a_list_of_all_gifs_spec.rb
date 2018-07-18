@@ -13,8 +13,8 @@ describe 'a visitor' do
     it 'should see a list of all gifs sorted by category' do
       visit gifs_path
 
-      expect(page).to have_content(@category1.title)
-      expect(page).to have_content(@category2.title)
+      expect(page).to have_content(@category1.title.capitalize)
+      expect(page).to have_content(@category2.title.capitalize)
     end
   end
 end

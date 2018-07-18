@@ -2,9 +2,10 @@
 
 <% if current_user %>
   <%= form_tag user_favorites_path(session[:user_id]) do %>
+  <div class='gif-page'>
     <% @gifs.each do |gif| %>
-      <div id="gif-<%=gif.id%>">
-        <p><%= gif.category.title %></p>
+      <div id="gif-<%=gif.id%>" class='gif-box centered'>
+        <h4><%= gif.category.title.capitalize %></h4>
         <p><img src=<%=gif.gif_url%>></p>
           <p>
             <%= label_tag('Favorite') %>
@@ -13,14 +14,17 @@
           <br>
       </div>
     <% end %>
-    <%= submit_tag 'Save Favorites'%>
+    </div>
+    <p class='centered'><%= submit_tag 'Save Favorites'%></p>
   <% end %>
 <% else %>
+<div class='gif-page'>
   <% @gifs.each do |gif| %>
-    <div id="gif-<%=gif.id%>%">
-      <p><%= gif.category.title %></p>
+    <div id="gif-<%=gif.id%>" class='gif-box centered'>
+      <h4><%= gif.category.title.capitalize %></h4>
       <p><img src=<%=gif.gif_url%>></p>
       <br>
     </div>
-    <% end %>
+  <% end %>
+</div>
 <% end %>

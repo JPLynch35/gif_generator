@@ -10,7 +10,7 @@ describe 'user visiting new gif page' do
       visit login_path
       fill_in :email, with: 'Jenny@jenny.com'
       fill_in :password, with: 'pass'
-      click_on 'Log In'
+      click_on 'Submit'
 
       visit new_admin_category_path
       
@@ -19,7 +19,7 @@ describe 'user visiting new gif page' do
       click_on 'Generate Gif'
 
       expect(current_path).to eq(gifs_path)
-      expect(page).to have_content('pig')
+      expect(page).to have_content('Pig')
     end
   end
   context 'as a default user' do
