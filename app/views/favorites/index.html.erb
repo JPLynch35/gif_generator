@@ -1,11 +1,24 @@
-<h2 class='heading'>Your Favorite Gifs</h2>
-
-<main class='gif-page'>
-  <% @favorites.each do |favorite| %>
-    <div id="f-gif-<%=favorite.id%>" class='gif-box centered'>
-      <h4><%= favorite.gif.category.title.capitalize %></h4>
-      <p><img src=<%=favorite.gif.gif_url%>></p>
-      <%= link_to 'Remove', user_favorite_path(@user, favorite.id), method: 'delete' %>
-    </div>
-  <% end %>
-</main>
+<% if current_user == @user %>
+  <h2 class='heading'>Your Favorite Gifs</h2>
+  <main class='gif-page'>
+    <% @favorites.each do |favorite| %>
+      <div id="f-gif-<%=favorite.id%>" class='gif-box centered'>
+        <h4><%= favorite.gif.category.title.capitalize %></h4>
+        <p><img src=<%=favorite.gif.gif_url%>></p>
+        <%= link_to 'Remove', user_favorite_path(@user, favorite.id), method: 'delete' %>
+      </div>
+    <% end %>
+  </main>
+<% elsif current_user %>
+  <h2 class='heading'>Hey <%=current_user.name%>, welcome to <%=@user.name%>'s favorites page!</h2>
+  <main class='gif-page'>
+    <% @favorites.each do |favorite| %>
+      <div id="f-gif-<%=favorite.id%>" class='gif-box centered'>
+        <h4><%= favorite.gif.category.title.capitalize %></h4>
+        <p><img src=<%=favorite.gif.gif_url%>></p>
+      </div>
+    <% end %>
+  </main>
+<% else %>
+  <h2 class='heading'>Log in to see other user's favorites.</h2>
+<% end %>
