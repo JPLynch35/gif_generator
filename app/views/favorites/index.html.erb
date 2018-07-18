@@ -1,4 +1,4 @@
-<h2>Your Favorite Gifs</h2>
+<h2 class='heading'>Your Favorite Gifs</h2>
 
 <% @favorites.each do |favorite| %>
   <div id="f-gif-<%=favorite.id%>">
@@ -7,6 +7,3 @@
     <%= link_to 'Remove', user_favorite_path(@user, favorite.id), method: 'delete' %>
   </div>
 <% end %>
-<br>
-<br>
-<%= link_to 'All Gifs', gifs_path %>
