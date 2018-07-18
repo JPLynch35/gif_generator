@@ -1,9 +1,13 @@
 <%= form_tag login_path do %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
-
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-
-  <%= submit_tag "Log In" %>
+  <div class="form-row">
+    <div class="col">
+      <%= label_tag :email %>
+      <%= text_field_tag :email, '', class: 'form-control', placeholder: 'Email' %>
+    </div>
+    <div class="col">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, '', class: 'form-control', placeholder: 'Password' %>
+    </div>
+  </div>
+  <%= submit_tag 'Log In', class: 'user-submit' %>
 <% end %>
