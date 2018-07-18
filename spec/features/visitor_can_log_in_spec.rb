@@ -42,5 +42,19 @@ describe 'a visitor' do
       
       expect(current_path).to eq(user_path(User.find_by(email: 'Dennis@gmail.com').id))
     end
+    it 'can not log in with bad credentials' do
+      user1 = User.create(name: 'Dennis', email: 'Dennis@gmail.com', password: 'thisismypassword')
+      visit login_path
+
+      fill_in 'email', with: user1.email
+      fill_in 'password', with: 'badpassword'
+      click_on 'Submit'
+      
+      expect(page).to have_content('Email')
+      expect(page).to have_content('Password')
+      within('body') do
+        expect(page).to have_content('Log In')
+      end
+    end
   end
 end
