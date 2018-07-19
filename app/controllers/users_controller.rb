@@ -15,8 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = 
-    
+    @users = User.where.not(id: current_user)
   end
 
   private
