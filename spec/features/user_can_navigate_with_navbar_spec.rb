@@ -18,7 +18,7 @@ describe 'a site visitor' do
       expect(current_path).to eq(gifs_path)
 
       within '.navbar' do
-        click_on 'Dashboard'
+        click_on 'GifGenerator'
       end
       expect(current_path).to eq(root_path)
       expect(page).to_not have_content('Favorites')
